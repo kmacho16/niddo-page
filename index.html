@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niddo — Donde el talento toma vuelo.</title>
+  <meta name="description" content="Una suscripción. Cinco actividades. Un solo pago. Inglés, ballet, taekwondo, playground y Learning Club para tu hijo — sin inscripciones, sin contratos, por WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:        #0EA5E9;
+      --azul-claro:  #38BDF8;
+      --azul-palido: #BAE6FD;
+      --naranja:     #FB923C;
+      --naranja-osc: #EA580C;
+      --naranja-pal: #FFF7ED;
+      --fondo:       #F0FAFE;
+      --superficie:  #E0F2FE;
+      --texto:       #2C2C3E;
+      --texto-sec:   #64A0B8;
+      --sombra:      0 2px 8px rgba(14,165,233,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--texto);
+      background: var(--fondo);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--fondo);
+      border-bottom: 1px solid var(--superficie);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .logo-name {
+      font-family: Georgia, serif;
+      font-weight: bold;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      color: var(--azul);
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 9px 16px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: background 150ms ease;
+      white-space: nowrap;
+    }
+    .header-cta:hover { background: #1ebe5a; }
+    .header-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── SECTIONS ── */
+    section { padding: 56px 20px; }
+    .container { max-width: 480px; margin: 0 auto; }
+
+    @media (min-width: 640px) {
+      .container { max-width: 600px; }
+    }
+    @media (min-width: 1024px) {
+      section { padding: 80px 40px; }
+      .container { max-width: 1000px; }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background: var(--fondo);
+      text-align: center;
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--azul-claro);
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-family: Georgia, serif;
+      font-size: clamp(28px, 7vw, 48px);
+      font-weight: bold;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--texto);
+      margin-bottom: 16px;
+    }
+
+    .hero-headline span { color: var(--azul); }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--texto-sec);
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--azul);
+      color: #fff;
+      border-radius: 10px;
+      padding: 14px 28px;
+      font-weight: 500;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background 150ms ease;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: #0284C7; }
+    .btn-primary svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .hero-urgency {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--texto-sec);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── SEED CHIP ── */
+    .seed-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--naranja-pal);
+      border: 1px solid var(--naranja);
+      border-radius: 999px;
+      color: var(--naranja-osc);
+      font-weight: 500;
+      padding: 3px 12px;
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── ACTIVIDADES ── */
+    #actividades { background: var(--superficie); }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--azul-claro);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: bold;
+      letter-spacing: -0.02em;
+      color: var(--texto);
+      margin-bottom: 32px;
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 500px) {
+      .activities-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .activities-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+
+    .activity-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 0.5px solid var(--superficie);
+      box-shadow: var(--sombra);
+    }
+
+    .activity-card-header {
+      background: var(--azul);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .activity-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .activity-icon svg { width: 22px; height: 22px; color: #fff; }
+
+    .activity-name {
+      font-weight: 500;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    .activity-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-top: 2px;
+    }
+
+    .activity-card-body {
+      padding: 14px 16px;
+    }
+
+    .activity-desc {
+      font-size: 13px;
+      color: var(--texto-sec);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    /* ── CÓMO FUNCIONA ── */
+    #como-funciona { background: var(--fondo); }
+
+    .steps-grid {
+      display: grid;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .steps-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px;
+      border: 0.5px solid var(--superficie);
+      box-shadow: var(--sombra);
+      position: relative;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: var(--azul);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--texto);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--texto-sec);
+      line-height: 1.6;
+    }
+
+    /* ── PLANES ── */
+    #planes { background: var(--superficie); }
+
+    .plans-grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .plans-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .plan-card {
+      border-radius: 16px;
+      padding: 28px;
+      border: 1.5px solid var(--superficie);
+      background: #fff;
+      box-shadow: var(--sombra);
+    }
+
+    .plan-card.featured {
+      background: var(--azul);
+      border-color: var(--azul);
+    }
+
+    .plan-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .plan-card:not(.featured) .plan-badge {
+      background: var(--fondo);
+      color: var(--azul-claro);
+    }
+
+    .plan-card.featured .plan-badge {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+
+    .plan-name {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .plan-card:not(.featured) .plan-name { color: var(--texto); }
+    .plan-card.featured .plan-name { color: #fff; }
+
+    .plan-price {
+      font-family: 'DM Mono', monospace;
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .plan-card:not(.featured) .plan-price { color: var(--texto); }
+    .plan-card.featured .plan-price { color: #fff; }
+
+    .plan-period {
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    .plan-card:not(.featured) .plan-period { color: var(--texto-sec); }
+    .plan-card.featured .plan-period { color: rgba(255,255,255,0.75); }
+
+    .plan-seeds {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .plan-card.featured .seed-chip {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+    }
+
+    .plan-divider {
+      border: none;
+      border-top: 1px solid var(--superficie);
+      margin-bottom: 18px;
+    }
+    .plan-card.featured .plan-divider { border-color: rgba(255,255,255,0.2); }
+
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .plan-card:not(.featured) .plan-features li { color: var(--texto); }
+    .plan-card.featured .plan-features li { color: rgba(255,255,255,0.9); }
+
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .plan-card:not(.featured) .check-icon { color: var(--azul); }
+    .plan-card.featured .check-icon { color: rgba(255,255,255,0.8); }
+
+    .plan-two-kids {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+    .plan-card:not(.featured) .plan-two-kids {
+      background: var(--fondo);
+      color: var(--texto-sec);
+    }
+    .plan-card.featured .plan-two-kids {
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.85);
+    }
+
+    .plan-two-kids strong {
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── COMBINACIONES ── */
+    .combos-wrap {
+      margin-top: 32px;
+    }
+
+    .combos-title {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--azul-claro);
+      margin-bottom: 14px;
+    }
+
+    .combo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .combo-tag {
+      background: #fff;
+      border: 0.5px solid var(--superficie);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--texto);
+      box-shadow: var(--sombra);
+    }
+
+    /* ── CTA FINAL ── */
+    #cta-final {
+      background: var(--azul);
+      text-align: center;
+      padding: 72px 20px;
+    }
+
+    .cta-headline {
+      font-family: Georgia, serif;
+      font-size: clamp(24px, 6vw, 40px);
+      font-weight: bold;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .cta-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 10px;
+      padding: 16px 32px;
+      font-weight: 500;
+      font-size: 17px;
+      text-decoration: none;
+      transition: background 150ms ease;
+      cursor: pointer;
+    }
+    .btn-whatsapp:hover { background: #1ebe5a; }
+    .btn-whatsapp svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+    .cta-urgency {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--texto);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-logo-name {
+      font-family: Georgia, serif;
+      font-weight: bold;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: var(--azul-claro);
+      margin-bottom: 6px;
+    }
+
+    .footer-slogan {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+
+    .footer-link {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <a href="#" class="logo-wrap" aria-label="Niddo inicio">
+    <!-- Isotipo inline SVG (alas + núcleo naranja) -->
+    <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Ala exterior (azul pálido) -->
+      <path d="M24 42 C12 38 4 30 6 20 C8 12 16 8 24 10 C32 8 40 12 42 20 C44 30 36 38 24 42Z" fill="#BAE6FD"/>
+      <!-- Ala media (azul claro) -->
+      <path d="M24 38 C14 34 8 27 10 19 C12 13 18 10 24 12 C30 10 36 13 38 19 C40 27 34 34 24 38Z" fill="#38BDF8"/>
+      <!-- Ala interior (azul) -->
+      <path d="M24 33 C16 30 12 24 14 18 C16 13 20 11 24 13 C28 11 32 13 34 18 C36 24 32 30 24 33Z" fill="#0EA5E9"/>
+      <!-- Núcleo naranja (4 anillos) -->
+      <circle cx="24" cy="23" r="9" fill="#FB923C" opacity="0.25"/>
+      <circle cx="24" cy="23" r="7" fill="#FB923C" opacity="0.4"/>
+      <circle cx="24" cy="23" r="5" fill="#FB923C" opacity="0.7"/>
+      <circle cx="24" cy="23" r="3" fill="#FB923C"/>
+    </svg>
+    <span class="logo-name">Niddo</span>
+  </a>
+
+  <a href="https://wa.me/573000000000?text=Hola%20Niddo%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20planes" class="header-cta" target="_blank" rel="noopener">
+    <!-- WhatsApp icon -->
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+    Escríbenos
+  </a>
+</header>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="container">
+    <span class="hero-label">Madrid, Cundinamarca · Cupos limitados</span>
+    <h1 class="hero-headline">
+      Una suscripción.<br/>
+      <span>Cinco actividades.</span><br/>
+      Un solo pago.
+    </h1>
+    <p class="hero-sub">
+      Inglés, ballet, taekwondo, playground y Learning Club para tu hijo — sin inscripciones, sin contratos, por WhatsApp.
+    </p>
+    <a href="https://wa.me/573000000000?text=Hola%20Niddo%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20planes" class="btn-primary" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp para saber más">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      Escríbenos por WhatsApp
+    </a>
+    <p class="hero-urgency">Cupos limitados · Madrid, Cundinamarca</p>
+  </div>
+</section>
+
+<!-- ── ACTIVIDADES ── -->
+<section id="actividades">
+  <div class="container">
+    <p class="section-label">Lo que incluye</p>
+    <h2 class="section-title">5 actividades, un plan</h2>
+    <div class="activities-grid">
+
+      <!-- Inglés -->
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div class="activity-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="activity-name">Inglés</div>
+            <span class="activity-tag">1.5 h · 5 días/sem</span>
+          </div>
+        </div>
+        <div class="activity-card-body">
+          <p class="activity-desc">Clases conversacionales para niños en etapa escolar. Hasta 6 clases/mes en Explorer, 10 en Full.</p>
+          <span class="seed-chip">🌱 2 semillas</span>
+        </div>
+      </div>
+
+      <!-- Ballet -->
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div class="activity-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="5" r="1"/><path d="m9 20 3-6 3 6"/><path d="m6 8 6 2 6-2"/><path d="M12 10v4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="activity-name">Ballet</div>
+            <span class="activity-tag">1 h · 2 días/sem</span>
+          </div>
+        </div>
+        <div class="activity-card-body">
+          <p class="activity-desc">Expresión artística y coordinación corporal desde los primeros pasos.</p>
+          <span class="seed-chip">🌱 2 semillas</span>
+        </div>
+      </div>
+
+      <!-- Taekwondo -->
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div class="activity-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="activity-name">Taekwondo</div>
+            <span class="activity-tag">1 h · 2 días/sem</span>
+          </div>
+        </div>
+        <div class="activity-card-body">
+          <p class="activity-desc">Disciplina, respeto y autoconfianza a través de las artes marciales.</p>
+          <span class="seed-chip">🌱 2 semillas</span>
+        </div>
+      </div>
+
+      <!-- Playground -->
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div class="activity-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/>
+            </svg>
+          </div>
+          <div>
+            <div class="activity-name">Playground</div>
+            <span class="activity-tag">1 h · 7 días/sem</span>
+          </div>
+        </div>
+        <div class="activity-card-body">
+          <p class="activity-desc">Juego libre supervisado todos los días. El mejor espacio para que tu hijo socialice.</p>
+          <span class="seed-chip">🌱 2 semillas</span>
+        </div>
+      </div>
+
+      <!-- Learning Club -->
+      <div class="activity-card">
+        <div class="activity-card-header" style="background: var(--naranja);">
+          <div class="activity-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="activity-name">Learning Club</div>
+            <span class="activity-tag" style="color: rgba(255,255,255,0.85);">1.5 h · 2 días/sem · Propio</span>
+          </div>
+        </div>
+        <div class="activity-card-body">
+          <p class="activity-desc">Actividades de estimulación cognitiva con docente del equipo Niddo. Exclusivo para suscriptores.</p>
+          <span class="seed-chip">🌱 2 semillas</span>
+        </div>
+      </div>
+
+    </div><!-- /activities-grid -->
+  </div>
+</section>
+
+<!-- ── CÓMO FUNCIONA ── -->
+<section id="como-funciona">
+  <div class="container">
+    <p class="section-label">Así de simple</p>
+    <h2 class="section-title">¿Cómo funciona?</h2>
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <h3 class="step-title">Elige tu plan</h3>
+        <p class="step-desc">Escríbenos por WhatsApp, cuéntanos cuántos hijos tienes y te ayudamos a escoger el plan perfecto.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <h3 class="step-title">Recibe tus semillas</h3>
+        <p class="step-desc">Pagas por Nequi o Daviplata y en minutos tienes tus semillas listas para reservar actividades.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <h3 class="step-title">Reserva y disfruta</h3>
+        <p class="step-desc">Agenda las actividades por WhatsApp. Usa tu QR el día de la clase. Sin más trámites.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PLANES ── -->
+<section id="planes">
+  <div class="container">
+    <p class="section-label">Precios</p>
+    <h2 class="section-title">Elige tu plan</h2>
+
+    <div class="plans-grid">
+
+      <!-- Explorer -->
+      <div class="plan-card">
+        <span class="plan-badge">Explorer</span>
+        <div class="plan-name">Explorer</div>
+        <div class="plan-price">$180.000</div>
+        <div class="plan-period">por mes · 1 hijo</div>
+        <div class="plan-seeds">
+          <span class="seed-chip">🌱 14 semillas / mes</span>
+        </div>
+        <hr class="plan-divider"/>
+        <ul class="plan-features">
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Acceso a las 5 actividades
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Inglés máx. 6 clases/mes
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            1 clase de prueba gratis por actividad
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Semillas sobrantes se suman al siguiente ciclo
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Gestión completa por WhatsApp
+          </li>
+        </ul>
+        <div class="plan-two-kids">2 hijos: <strong>$280.000/mes · 22 semillas</strong></div>
+      </div>
+
+      <!-- Full -->
+      <div class="plan-card featured">
+        <span class="plan-badge">Más popular</span>
+        <div class="plan-name">Full</div>
+        <div class="plan-price">$320.000</div>
+        <div class="plan-period">por mes · 1 hijo</div>
+        <div class="plan-seeds">
+          <span class="seed-chip">🌱 28 semillas / mes</span>
+        </div>
+        <hr class="plan-divider"/>
+        <ul class="plan-features">
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Acceso a las 5 actividades
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Inglés máx. 10 clases/mes
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            1 clase de prueba gratis por actividad
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Semillas sobrantes se suman al siguiente ciclo
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Gestión completa por WhatsApp
+          </li>
+        </ul>
+        <div class="plan-two-kids">2 hijos: <strong>$470.000/mes · 42 semillas</strong></div>
+      </div>
+
+    </div><!-- /plans-grid -->
+
+    <!-- Combinaciones ejemplo -->
+    <div class="combos-wrap">
+      <p class="combos-title">Ejemplo — Explorer 14 semillas</p>
+      <div class="combo-tags">
+        <span class="combo-tag">3 inglés + 2 ballet + 2 Learning Club</span>
+        <span class="combo-tag">4 inglés + 2 ballet + 1 taekwondo + 1 playground</span>
+        <span class="combo-tag">2 inglés + 3 ballet + 2 Learning Club</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section id="cta-final">
+  <div class="container">
+    <h2 class="cta-headline">¿Listo para cultivar el talento de tu hijo?</h2>
+    <p class="cta-sub">Un mensaje es todo lo que necesitas. Sin formularios, sin esperas, sin complicaciones.</p>
+    <a href="https://wa.me/573000000000?text=Hola%20Niddo%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20planes" class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp con Niddo">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      Escríbenos por WhatsApp
+    </a>
+    <p class="cta-urgency">Cupos limitados · Madrid, Cundinamarca</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo-name">Niddo</div>
+  <div class="footer-slogan">Donde el talento toma vuelo.</div>
+  <a href="mailto:hola@niddo.kids" class="footer-link">hola@niddo.kids</a>
+</footer>
+
+</body>
+</html>
